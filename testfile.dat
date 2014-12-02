@@ -1,0 +1,58 @@
+Playlist falseFunc(A, B, C)
+	
+	D = A * B?
+
+	horn "A ="?
+	horn A?
+	horn "B = "?
+	horn B?
+	horn "D = A * B"?
+	horn "D = "?
+	horn D?
+	
+	horn "C ="?
+	horn C?
+	horn "D - C ="?
+	horn D - C?
+#
+
+Playlist trueFunc(A, B)
+ horn "A / B = "?
+ C = A / B?
+ horn C?
+#
+
+Playlist noParam()
+
+	horn "This function has no extra params"?
+#
+
+Playlist Main()
+	D = 12?
+	C = 12?
+
+	horn "We are starting condition checks"?
+
+	Pick(D > C)
+		horn "D > C is true!"?
+		trueFunc(D, C)?
+	Other
+		horn "D > C is false!"?
+		falseFunc(D, C, 5)?
+	&
+
+	Pick(D == C)
+		horn "D == C is true!"?
+		trueFunc(D, C)?
+	Other
+		horn "D == C is false!"?
+		falseFunc(D, C, 5)?
+	&
+
+	horn "Done with conditional stuff"?
+
+	noParam()?
+
+	horn "Done with Program"?
+
+#
